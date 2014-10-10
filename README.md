@@ -4,6 +4,17 @@ Ansible-Kibana Role
 
 [Kibana](http://www.elasticsearch.org/overview/kibana/) is an open source (Apache Licensed), browser based analytics and search dashboard for ElasticSearch.
 
+
+
+Dependencies
+------------
+Dependecies are not enforced by the role and left for you to manage. This role has been tested with nginx and ElasticSearch and it works without any problem.
+
+* Nginx 
+* Elasticsearch 
+
+
+
 Requirements
 ------------
 
@@ -61,12 +72,6 @@ Setup names and files of an array of dashboards
 It is ideal to persist dashboards in a git repository.
 
 
-Dependencies
-------------
-Dependecies are not enforced by the role and left for you to manage
-
-* Nginx 
-* Elasticsearch 
 
 
 
