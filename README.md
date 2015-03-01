@@ -33,22 +33,25 @@ Role Variables
 
 The role has default value that should work without modification unless you want to
 
-```yaml
 kibana version to install
-
+```yaml
 	kibana_version          : "3.1.0" 	
 ```
 
 Where to install kibabana
+
 ```yaml
 	kibana_base_dir         : "/opt/kibana"	
 ```
 
 Elastic search server to use (by default the deployed server)
+
 ```yaml
 	es_host                 : http://{{ansible_hostname}}
 ```
+
 nginx fqdn if your using my nginx role this will be used (by default the deployed server)
+
 ```yaml
 	kibana_fqdn             : "{{ansible_hostname}}"
 ```
@@ -58,6 +61,7 @@ nginx fqdn if your using my nginx role this will be used (by default the deploye
 You can deploy your dashboard as follow. 
 
 To deploy dashboards 
+
 ```yaml
 	kibana_dashboard_inst   : true
 ```
