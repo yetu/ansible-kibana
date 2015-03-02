@@ -1,20 +1,39 @@
 ---
 
-kibana_version          : "3.1.0"  
-kibana_base_dir         : "/opt/kibana" 
-es_host                 : "http://{{ansible_hostname}}:9200"
-kibana_fqdn             : "{{ansible_hostname}}" ## For nginx
-kibana_dashboards       :
-                         - name: nginx.json
-                           src : nginx.json 
 
-kibana_dashboard_inst   : false
+kibana_dir: "/opt"
+kibana_host: "0.0.0.0"
+kibana_port: "5601"
+kibana_elasticsearch: "http://elastic000.yetudev.com:9200/"
+kibana_index: ".kibana"
+
+kibana_log: /var/log/kibana.log
+kibana_log_rotate_count: 5
+kibana_log_rotate_interval: daily
+
+
+
+
+kibana_version              : "4.0.0"
+kibana_base_dir             : "/opt/kibana"
+kibana_user                 : "kibana"
+es_host                     : "http://{{ansible_hostname}}:9200"
+kibana_fqdn                 : "{{ansible_hostname}}" ## For nginx
+kibana_dashboards           :
+                              - name: nginx.json
+                                src : nginx.json
+
+kibana_dashboard_install    : false
 ## Probably you dont need to edit any var
-kibana_tar              : "v{{kibana_version}}.tar.gz"
-kibana_dir              : "kibana-{{kibana_version}}"
-kibana_source_dir       : "{{kibana_base_dir}}/source"
-kibana_instal_dir       : "{{kibana_base_dir}}/install"
-kibana_install_link     : "{{kibana_base_dir}}/www"
-kibana_www_dir          : "{{kibana_instal_dir}}/{{kibana_dir}}/src/"
-kibana_url              : "https://github.com/elasticsearch/kibana/archive/{{kibana_tar}}"
-kibana_dashboard_dir    : "{{kibana_www_dir}}/app/dashboards"
+kibana_tar                  : "kibana-{{ kibana_version }}-{{ kibana_os }}-{{ kibana_arch }}.tar.gz"
+kibana_dir                  : "kibana-{{kibana_version}}"
+kibana_source_dir           : "{{kibana_base_dir}}/source"
+kibana_instal_dir           : "{{kibana_base_dir}}/install"
+kibana_install_link         : "{{kibana_base_dir}}/www"
+kibana_www_dir              : "{{kibana_instal_dir}}/{{kibana_dir}}/src/"
+kibana_url                  : "https://download.elasticsearch.org/kibana/kibana/{{kibana_tar}}"
+kibana_dashboard_dir        : "{{kibana_www_dir}}/app/dashboards"
+kibana_os                   : "linux"
+kibana_arch                 : "x64"
+
+
